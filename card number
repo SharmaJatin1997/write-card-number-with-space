@@ -1,0 +1,44 @@
+//FOR CARD NUMBER FORMATTING
+    private String beforeString;
+    private String afterString;
+    
+//Above on create
+
+public static void formatNumber(EditText editText, String insertedChar, boolean isInsert, int formatAfterInteger) {
+        String string = editText.getText().toString();
+        StringBuilder sb = new StringBuilder();
+        if (isInsert) {
+            String givenString = string.replace(insertedChar, "");
+            for (int i = 0; i < givenString.length(); i++) {
+                if (i > formatAfterInteger - 1 && i % formatAfterInteger == 0) {
+                    sb.append(insertedChar);
+                }
+                sb.append(givenString.charAt(i));
+            }
+        } else {
+            sb.append(string);
+            sb.deleteCharAt(string.length() - 1);
+        }
+        editText.setText(sb.toString());
+        editText.setSelection(editText.getText().length());
+    }
+    <-------->
+     public static void formatNumber(EditText editText, String insertedChar, boolean isInsert, int formatAfterInteger) {
+        String string = editText.getText().toString();
+        StringBuilder sb = new StringBuilder();
+        if (isInsert) {
+            String givenString = string.replace(insertedChar, "");
+            for (int i = 0; i < givenString.length(); i++) {
+                if (i > formatAfterInteger - 1 && i % formatAfterInteger == 0) {
+                    sb.append(insertedChar);
+                }
+                sb.append(givenString.charAt(i));
+            }
+        } else {
+            sb.append(string);
+            sb.deleteCharAt(string.length() - 1);
+        }
+        editText.setText(sb.toString());
+        editText.setSelection(editText.getText().length());
+    }
+    
